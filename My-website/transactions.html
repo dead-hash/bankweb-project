@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Diu Bank</div>
+        <nav>
+            <a href="#">Dashboard</a>
+            <a href="transfer.html">Transfer Money</a>
+            <a href="transactions.html">Transactions</a>
+            <a href="about.html">About</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="index.html">Logout</a>
+
+        </nav>
+    </header>
+
+    <main class="container">
+            <h2 class="dashboard-header">Transaction History</h2>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="date-range">Date Range</label>
+                    <select name="date" id="date">
+                        <option value="30">Last 30 days</option>
+                        <option value="60">Last 60 days</option>
+                        <option value="90">Last 90 days</option>
+                        <option value="180">Last 6 months</option>
+                        <option value="360">Last year</option>
+                        <option value="all">All Transaction</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="t-type">Transaction Type</label>
+                    <select name="t-type" id="t-type">
+                        <option value="all type">All Types</option>
+                        <option value="deposit">Deposits</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="withdrawls">withdrawals</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn" onclick="applyFilters()">Apply Filters</button>
+                </div>
+
+            </div>
+
+
+    </main>
+    
+    
+    <footer>
+
+        
+        <p>&copy;2024 Diu Bank.All rights reserved.</p>
+    </footer>
+
+    <script>
+    function applyFilters() {
+         alert('Filters have been applied successfully!');
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transfer-money</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Diu Bank</div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="transfer.html">Transfer Money</a>
+            <a href="transactions.html">Transactions</a>
+            <a href="about.html">About</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h3 class="dashboard-header">Transfer Money</h3>
+        
+        <div class="transfering-info">
+            <div class="transfer-form">
+                <h2>Make a Transfer</h2>
+
+                <form id="transfer-form">
+                    <div class="form-group">
+                        <label for="from-account">Your Account Number</label>
+                        <input type="text" id="from-account" name="from-account" pattern="[0-9]{4}+" placeholder="1234-1234-1234-1234" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="recipientname">Recipient Name</label>
+                        <input type="text" id="recipientname" name="recipientname" placeholder="Enter recipient name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rec-account">Recipient Account Number</label>
+                        <input type="text" id="rec-account" name="rec-account" pattern="[0-9]+" placeholder="Enter Account Number" required>
+                    </div>
+
+                    <div class="form-group">
+                         <label for="amount">Amount</label>
+                        <input type="number" id="amount" name="amount"  placeholder="ENter Amount" required>
+                    </div>
+
+                    <button class="btn" type="submit">Transfer</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="transfer-guide">
+            <h2>Transfer Guidelines</h2>
+            <ul>
+                <li>Maximum transfer limit: 10,000Tk per day</li>
+                <li>Double-check account numbers before sending</li>
+                <li>Transfers to external accounts may take sometime to verify</li>
+            </ul>
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        
+        <p>&copy;2024 Diu Bank.All rights reserved.</p>
+    </footer>
+
+    <script>
+      
+     document.getElementById('transfer-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        
+        const accountNumber = document.getElementById('from-account').value;
+        const recipient = document.getElementById('rec-account').value;
+        const amount = document.getElementById('amount').value;
+        if (accountNumber && recipient.length < 12) {
+            alert('Account number must be at least 12 digits');
+            return;
+
+        }
+
+        if (amount< 100 || amount>10000) {
+            alert('Amount must be at least 100 TK and highest 10000 Tk');
+            return;
+        }
+        if (accountNumber === recipient) {
+            alert('Cannot transfer to the same account!');
+            return;
+        }
+        window.location.href = 'dashboard.html';
+        });
+    
+    </script>
+
+</body>
+</html>

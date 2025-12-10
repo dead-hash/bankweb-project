@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Diu Bank</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="#" onclick="alert('Please login First')">Profile</a>
+            <a href="#" onclick="alert('Please Login Firts...')">Service</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="login-box">
+            <h2>Welcome Diu Bank</h2>
+           <small><p>Please Login First</p></small> 
+
+
+            <form id="login-form" action="dashboard.html" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username"  required>
+                </div>
+
+                <div class="form-group">
+                    <label for="account-number">Your Account Number</label>
+                    <input type="text" id="account-number" name="account-number" pattern="[0-9]+" placeholder="1234-1234-1234" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div>
+                    <button class="btn" type="submit">Login to Account</button>
+                    <button class="btn" type="button">Sign up</button>
+                </div>
+               
+            </form>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <p>&copy;2024 Diu Bank.All rights reserved.</p>
+    </footer>
+
+    <script>
+      
+     document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const accountNumber = document.getElementById('account-number').value;
+        
+        if (username.length < 3) {
+            alert('Username must be at least 3 characters long');
+            return;
+        }
+        
+        if (password.length < 8) {
+            alert('Password must be at least 8 characters long');
+            return;
+        }
+        
+        if (accountNumber && accountNumber.length < 12) {
+            alert('Account number must be at least 12 digits');
+            return;
+
+        }
+        window.location.href = 'dashboard.html';
+        });
+    
+        document.querySelectorAll('.btn')[1].addEventListener('click', function() {
+        alert('Not Available');
+        });
+    </script>
+
+
+
+          
+</body>
+</html>
