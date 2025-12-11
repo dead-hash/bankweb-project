@@ -13,8 +13,9 @@
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="contacts.html">Contacts</a>
-            <a href="#" onclick="alert('Please login First')">Profile</a>
-            <a href="#" onclick="alert('Please Login Firts...')">Service</a>
+            <a href="#" onclick="alert('Please login First...')">Profile</a>
+            <a href="#" onclick="alert('Please Login First...')">Service</a>
+            <a href="signup.html">Sign up</a>
         </nav>
     </header>
 
@@ -23,8 +24,7 @@
             <h2>Welcome Diu Bank</h2>
            <small><p>Please Login First</p></small> 
 
-
-            <form id="login-form" action="dashboard.html" method="post">
+            <form id="login-form">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" placeholder="Enter your username"  required>
@@ -40,57 +40,45 @@
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
                 <div>
-                    <button class="btn" type="submit">Login to Account</button>
-                    <button class="btn" type="button">Sign up</button>
+                    <button onclick="login()" class="btn" type="button">Login to Account</button>
+                    <button onclick="signup()" class="btn" type="button">Sign up</button>
                 </div>
-               
             </form>
 
         </section>
-
-
     </main>
 
-
     <footer>
-
         <p>&copy;2024 Diu Bank.All rights reserved.</p>
     </footer>
 
     <script>
-      
-     document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const accountNumber = document.getElementById('account-number').value;
-        
-        if (username.length < 3) {
-            alert('Username must be at least 3 characters long');
-            return;
+        function signup()
+        {
+            window.location.href="signup.html";
         }
-        
-        if (password.length < 8) {
-            alert('Password must be at least 8 characters long');
-            return;
-        }
-        
-        if (accountNumber && accountNumber.length < 12) {
-            alert('Account number must be at least 12 digits');
-            return;
+        function login() {
+         
+            let user1 = document.getElementById("username").value;
+            let pass1 = document.getElementById("password").value;
 
+            if (user1 === "" || pass1 === "") {
+                alert("Please enter both username and password!");
+                return;
+            }
+
+            let user = localStorage.getItem("username");
+            let pass = localStorage.getItem("password");
+
+            if (user1 === user && pass1 === pass) {
+                alert("Login Successful!");
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Incorrect username or password!");
+            }
         }
-        window.location.href = 'dashboard.html';
-        });
-    
-        document.querySelectorAll('.btn')[1].addEventListener('click', function() {
-        alert('Not Available');
-        });
+     
     </script>
-
-
-
-          
 </body>
 </html>
+
