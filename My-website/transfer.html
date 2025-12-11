@@ -73,6 +73,32 @@
         <p>&copy;2024 Diu Bank.All rights reserved.</p>
     </footer>
 
+    <script>
+        function transfer(){
+            let myaccount= document.getElementById("from-account").value;
+            let reciver= document.getElementById("rec-account").value;
+            let amount= document.getElementById("amount").value;
+
+             if (myaccount == reciver ){
+                alert("Cannot send to same account");
+                return false;
+            }
+
+            if (myaccount.length <12 || reciver.length < 12 ){
+                alert("Account number must be atleast 12 digits");
+                return false;
+            }
+            if (amount<100){
+                alert("amount minimum 100 and maximum 10,000Tk");
+                return false;
+            }
+             alert("Successful transfer");
+             window.location.href = "dashboard.html";
+
+        }
+    </script>
+
 </body>
 </html>
+
 
