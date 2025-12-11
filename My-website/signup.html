@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Diu Bank</div>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="login-box">
+            <h2>Create Account</h2>
+           <small><p>Please Enter your details</p></small> 
+
+
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username"  required>
+                </div>
+
+                <div class="form-group">
+                    <label for="account-number">Your Account Number</label>
+                    <input type="text" id="account-number" name="account-number" pattern="[0-9]+" placeholder="1234-1234-1234" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div>
+                    <button onclick="signup()" class="btn" type="button">Sign up</button>
+                </div>
+               
+            </form>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;2024 Diu Bank.All rights reserved.</p>
+    </footer>
+
+    <script>
+        function signup() {
+         let user = document.getElementById("username").value;
+         let pass = document.getElementById("password").value;
+         let accountNum = document.getElementById("account-number").value;
+
+         if (user=== "" || pass === "" || accountNum === "") {
+             alert("Please enter all fields!");
+             return;
+         }
+
+         localStorage.setItem("username", user);
+         localStorage.setItem("password", pass);
+         localStorage.setItem("accountNumber", accountNum);
+         
+         alert("Sign up successful! You can now login with your credentials.");
+         document.getElementById("username").value = "";
+         document.getElementById("password").value = "";
+         document.getElementById("account-number").value = "";
+     }
+    </script>
+
+</body>
+</html>
